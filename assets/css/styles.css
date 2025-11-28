@@ -495,13 +495,57 @@ details p {
 
 /* ===== SECCIÓN DEMO (CELULAR INTEGRADO) ===== */
 
+/* Reemplaza tu bloque .demo-section actual por este: */
 .demo-section {
     padding: 100px 20px;
-    background: #f1f5f9; /* Un gris muy suavecito para resaltar */
+    background: #ffffff; /* Cambiamos gris por blanco para más luz */
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative; /* Necesario para los elementos decorativos */
+    overflow: hidden;   /* Para que los blobs no se salgan de la sección */
+}
+
+/* ===== DECORACIÓN DE FONDO (Hacen que el celular resalte) ===== */
+
+/* Blob 1: Luz principal a la izquierda */
+/* Luz Central Intensa (Morada) */
+.demo-section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrado perfecto detrás del cel */
+    width: 350px; /* Más concentrado */
+    height: 350px;
+    background: var(--primary); /* Tu color morado principal */
+    filter: blur(80px); /* Difuminado */
+    opacity: 0.4; /* ¡Mucho más visible! (Antes era 0.15) */
+    z-index: 1;
+    border-radius: 50%;
+}
+
+/* Luz Secundaria (Rosa/Azul) para darle dimensión */
+.demo-section::after {
+    content: '';
+    position: absolute;
+    top: 60%; /* Un poco más abajo */
+    left: 55%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background: var(--secondary); /* Tu color rosa */
+    filter: blur(70px);
+    opacity: 0.3;
+    z-index: 0;
+    border-radius: 50%;
+}
+
+/* Aseguramos que el texto y el celular queden ENCIMA de las luces */
+.demo-header, .phone-mockup-static {
+    position: relative;
+    z-index: 2;
 }
 
 .demo-header {
@@ -517,17 +561,29 @@ details p {
 .phone-mockup-static {
     width: 300px;
     height: 600px;
-    background: #1e293b; /* Marco oscuro */
+    background: #1e293b;
     border-radius: 45px;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.15); /* Sombra elegante */
+    
+    /* CAMBIO CLAVE 1: Sombra morada brillante en lugar de negra */
+    box-shadow: 0 20px 60px rgba(99, 102, 241, 0.5); 
+    
     padding: 12px;
     position: relative;
-    border: 4px solid #334155; /* Borde metálico */
-    margin: 0 auto; /* Centrado */
-    /* Evita que se vea gigante en móviles */
-    max-width: 100%; 
+    border: 4px solid #334155;
+    margin: 0 auto;
+    max-width: 100%;
+    z-index: 10; /* Asegura que esté encima de las luces */
+
+    /* CAMBIO CLAVE 2: Animación de flotar */
+    animation: flotar 6s ease-in-out infinite;
 }
 
+/* Agrega esta animación al final de tu CSS si no la tienes */
+@keyframes flotar {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); } /* Sube 20px */
+    100% { transform: translateY(0px); }
+}
 .phone-notch {
     position: absolute;
     top: 0;
