@@ -153,6 +153,8 @@ nav a:hover {
 
 .btn-primary {
     background: var(--gradient);
+    margin-left: auto;
+    margin-right: auto;
     color: white;
     border: none;
     padding: 14px 32px;
@@ -165,6 +167,8 @@ nav a:hover {
 }
 
 .btn-secondary {
+    margin-left: auto;
+    margin-right: auto;
     background: white;
     color: var(--dark);
     border: 1px solid #e2e8f0;
@@ -435,7 +439,7 @@ details p {
 /* ESTILO DE LAS FOTOS */
 .logos-track img {
     height: 300px;       /* Altura fija (tipo Story de Instagram) */
-    width: 420px;        /* Ancho fijo */
+    width: 520px;        /* Ancho fijo */
     object-fit: cover;   /* IMPORTANTE: Recorta la foto para que no se estire */
     border-radius: 16px; /* Bordes redondeados */
     margin: 0 15px;      /* Espacio entre cada foto */
