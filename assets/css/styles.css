@@ -88,11 +88,10 @@ nav a:hover {
     border-radius: 50px;
 }
 
-/* ===== HERO (CENTRADO) ===== */
 .hero {
     position: relative;
-    padding: 100px 20px; /* Mucho espacio arriba/abajo */
-    text-align: center;  /* CENTRA EL TEXTO */
+    padding: 100px 10px; 
+    text-align: center;  
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -396,42 +395,42 @@ nav a:hover {
 }
 
 .logos-marquee {
-    white-space: nowrap; 
+    width: 50%;             
+    max-width: 1200px;      
+    margin: 0 auto;         
+    overflow: hidden;      
     position: relative;
+
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 10%,
+        black 90%,
+        transparent
+    );
+    mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 10%,
+        black 90%,
+        transparent
+    );
 }
 
-.logos-marquee::before,
-.logos-marquee::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    width: 100px; 
-    height: 100%;
-    z-index: 2;
-    pointer-events: none; 
-}
-
-.logos-marquee::before {
-    left: 0;
-    background: linear-gradient(to right,lightblue, transparent);
-}
-
-.logos-marquee::after {
-    right: 0;
-    background: linear-gradient(to left, lightblue, transparent);
-}
 
 .logos-track {
-    display: inline-block;
-    animation: slide 35s linear infinite; 
+    display: flex;          
+    width: max-content;     
+    gap: 30px;              
+    animation: slide 40s linear infinite; 
 }
 
+
 .logos-track img {
-    height: 300px;      
-    width: 520px;      
+    height: 300px;       
+    width: 520px;       
     object-fit: cover;   
     border-radius: 16px; 
-    margin: 0 15px;      
     box-shadow: 0 8px 20px rgba(0,0,0,0.1); 
     transition: transform 0.3s ease; 
 }
@@ -439,14 +438,16 @@ nav a:hover {
 .logos-track img:hover {
     transform: scale(1.05); 
     cursor: pointer;
-    z-index: 10;
-    box-shadow: 0 15px 30px rgba(99, 102, 241, 0.2); 
+    
 }
+
+
 @keyframes slide {
-    from {
+    0% {
         transform: translateX(0);
     }
-    to {
+    100% {
+       
         transform: translateX(-50%); 
     }
 }
@@ -454,7 +455,10 @@ nav a:hover {
 @media (max-width: 768px) {
     .logos-track img {
         height: 200px;
-        width: 150px;
+        width: 150px; 
+    }
+    .logos-track {
+        gap: 15px; 
     }
 }
 
@@ -630,4 +634,24 @@ nav a:hover {
 .btn-white:hover {
     transform: translateY(-3px); 
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
+
+.local-video-section {
+    width: 90%;             
+    max-width: 1000px;      
+    margin: 60px auto;      
+
+    border-radius: 20px;
+    overflow: hidden;       
+    box-shadow: 0 15px 40px rgba(99, 102, 241, 0.2); 
+
+    line-height: 0; 
+    font-size: 0;
+}
+
+.local-video-section video {
+    width: 100%;    
+    height: auto;   
+    display: block;
+    object-fit: cover;
 }
